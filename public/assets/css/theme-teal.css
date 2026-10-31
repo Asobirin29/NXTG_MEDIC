@@ -1,0 +1,60 @@
+/* ============================================================
+   NXTG Medic — Tema "Teal Klinis"
+   Override token NexaDash bila <html data-nx-brand="teal">.
+   Tenang & klinis (PRD §11.5): latar netral sejuk, satu aksen
+   hijau kebiruan untuk aksi utama. Primary #0f766e dipilih agar
+   teks putih di tombol tetap kontras ≥ 4.5:1.
+   ============================================================ */
+
+[data-nx-brand="teal"] {
+  --nx-primary: #0f766e;
+  --nx-primary-hover: #115e59;
+  --nx-primary-subtle: #e3f4f1;
+  --nx-primary-rgb: 15 118 110;
+  --nx-primary-deep: #134e4a;
+
+  --nx-body-bg: #f2f6f7;
+  --nx-card-bg: #ffffff;
+  --nx-border:  #dde7ea;
+  --nx-hover-bg: #e8f0f1;
+  --nx-surface-1: #f6fafa;
+  --nx-surface-2: #ecf3f4;
+  --nx-surface-accent: linear-gradient(135deg, #e3f4f1 0%, #eef6f8 100%);
+
+  --nx-sidebar-bg: #fafcfc;
+
+  --nx-chart-1: #0f766e;
+  --nx-chart-2: #38bdf8;
+
+  --bs-primary: var(--nx-primary);
+  --bs-primary-rgb: 15, 118, 110;
+  --bs-link-color-rgb: 15, 118, 110;
+  --bs-body-bg: var(--nx-body-bg);
+  --bs-border-color: var(--nx-border);
+}
+
+[data-nx-brand="teal"][data-bs-theme="dark"] {
+  --nx-primary: #14a394;
+  --nx-primary-hover: #0f8a7d;
+  --nx-primary-subtle: #0f2e2b;
+  --nx-primary-rgb: 20 163 148;
+  --nx-primary-deep: #0b3b37;
+
+  --nx-body-bg: #0a1315;
+  --nx-card-bg: #111d20;
+  --nx-border:  #223438;
+  --nx-hover-bg: #19292d;
+  --nx-surface-1: #142326;
+  --nx-surface-2: #1a2c30;
+  --nx-surface-accent: linear-gradient(135deg, #0f2e2b 0%, #12262b 100%);
+
+  --nx-sidebar-bg: #0d181a;
+
+  --nx-chart-1: #14a394;
+  --nx-chart-2: #38bdf8;
+
+  --bs-primary-rgb: 20, 163, 148;
+  --bs-link-color-rgb: 20, 163, 148;
+  --bs-body-bg: var(--nx-body-bg);
+  --bs-border-color: var(--nx-border);
+}

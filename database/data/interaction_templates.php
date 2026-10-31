@@ -1,0 +1,36 @@
+<?php
+
+// TEMPLATE AWAL — WAJIB divalidasi apoteker mitra sebelum dipakai produksi
+// (PRD §13). Format: [zat A, zat B, keparahan, dampak klinis, saran tindakan].
+return [
+    ['Warfarin', 'Asam Asetilsalisilat', 'major', 'Risiko perdarahan meningkat bermakna.', 'Hindari kombinasi kecuali indikasi kuat; bila perlu pantau INR dan tanda perdarahan.'],
+    ['Warfarin', 'Ibuprofen', 'major', 'Risiko perdarahan saluran cerna meningkat.', 'Pilih parasetamol sebagai analgesik; hindari OAINS.'],
+    ['Warfarin', 'Natrium Diklofenak', 'major', 'Risiko perdarahan saluran cerna meningkat.', 'Pilih parasetamol sebagai analgesik; hindari OAINS.'],
+    ['Warfarin', 'Metronidazol', 'major', 'Metronidazol menghambat metabolisme warfarin, INR naik.', 'Hindari atau turunkan dosis warfarin dengan pemantauan INR ketat.'],
+    ['Warfarin', 'Flukonazol', 'major', 'Flukonazol menaikkan kadar warfarin, risiko perdarahan.', 'Hindari atau pantau INR ketat.'],
+    ['Warfarin', 'Siprofloksasin', 'moderate', 'Efek antikoagulan dapat meningkat.', 'Pantau INR selama dan setelah terapi.'],
+    ['Simvastatin', 'Klaritromisin', 'major', 'Kadar simvastatin naik tajam; risiko miopati/rabdomiolisis.', 'Kontraindikasi. Hentikan sementara simvastatin atau pilih antibiotik lain.'],
+    ['Simvastatin', 'Eritromisin', 'major', 'Kadar simvastatin naik; risiko miopati/rabdomiolisis.', 'Hindari; pilih antibiotik lain atau hentikan sementara simvastatin.'],
+    ['Simvastatin', 'Ketokonazol', 'major', 'Kadar simvastatin naik tajam; risiko rabdomiolisis.', 'Kontraindikasi.'],
+    ['Simvastatin', 'Amlodipin', 'moderate', 'Kadar simvastatin meningkat.', 'Batasi dosis simvastatin maksimal 20 mg/hari.'],
+    ['Kaptopril', 'Spironolakton', 'moderate', 'Risiko hiperkalemia.', 'Pantau kalium serum dan fungsi ginjal.'],
+    ['Lisinopril', 'Spironolakton', 'moderate', 'Risiko hiperkalemia.', 'Pantau kalium serum dan fungsi ginjal.'],
+    ['Digoksin', 'Furosemid', 'moderate', 'Hipokalemia akibat furosemid meningkatkan risiko toksisitas digoksin.', 'Pantau kalium dan tanda toksisitas digoksin.'],
+    ['Digoksin', 'Klaritromisin', 'major', 'Kadar digoksin meningkat; risiko toksisitas.', 'Hindari atau pantau kadar digoksin.'],
+    ['Teofilin', 'Siprofloksasin', 'major', 'Kadar teofilin meningkat; risiko kejang dan aritmia.', 'Hindari; bila perlu turunkan dosis teofilin dan pantau.'],
+    ['Teofilin', 'Eritromisin', 'moderate', 'Kadar teofilin meningkat.', 'Pantau tanda toksisitas teofilin.'],
+    ['Diazepam', 'Kodein', 'major', 'Depresi SSP dan napas aditif.', 'Hindari kombinasi; bila terpaksa gunakan dosis terendah dan durasi singkat.'],
+    ['Diazepam', 'Tramadol', 'major', 'Depresi SSP dan napas aditif.', 'Hindari kombinasi; bila terpaksa gunakan dosis terendah.'],
+    ['Alprazolam', 'Tramadol', 'major', 'Depresi SSP dan napas aditif.', 'Hindari kombinasi; bila terpaksa gunakan dosis terendah.'],
+    ['Alprazolam', 'Ketokonazol', 'major', 'Kadar alprazolam meningkat tajam.', 'Kontraindikasi.'],
+    ['Klopidogrel', 'Omeprazol', 'moderate', 'Omeprazol menurunkan aktivasi klopidogrel.', 'Pertimbangkan PPI lain (mis. pantoprazol) atau antagonis H2.'],
+    ['Asam Asetilsalisilat', 'Ibuprofen', 'moderate', 'Ibuprofen dapat mengurangi efek antiplatelet aspirin; risiko iritasi lambung.', 'Beri aspirin minimal 30 menit sebelum ibuprofen atau pilih parasetamol.'],
+    ['Glibenklamid', 'Siprofloksasin', 'moderate', 'Gangguan kadar gula darah (hipo/hiperglikemia).', 'Pantau gula darah.'],
+    ['Siprofloksasin', 'Aluminium Hidroksida', 'moderate', 'Absorpsi siprofloksasin turun drastis.', 'Minum siprofloksasin 2 jam sebelum atau 6 jam sesudah antasida.'],
+    ['Siprofloksasin', 'Magnesium Hidroksida', 'moderate', 'Absorpsi siprofloksasin turun drastis.', 'Minum siprofloksasin 2 jam sebelum atau 6 jam sesudah antasida.'],
+    ['Ketokonazol', 'Omeprazol', 'moderate', 'Absorpsi ketokonazol turun karena pH lambung naik.', 'Pertimbangkan antijamur lain.'],
+    ['Deksametason', 'Ibuprofen', 'moderate', 'Risiko tukak dan perdarahan saluran cerna meningkat.', 'Pertimbangkan gastroprotektor; pantau keluhan lambung.'],
+    ['Klorfeniramin Maleat', 'Diazepam', 'moderate', 'Efek sedasi aditif.', 'Edukasi pasien untuk tidak mengemudi.'],
+    ['Setirizin', 'Diazepam', 'minor', 'Efek sedasi dapat bertambah.', 'Edukasi pasien mengenai rasa kantuk.'],
+    ['Alopurinol', 'Amoksisilin', 'minor', 'Insiden ruam kulit meningkat.', 'Pantau munculnya ruam.'],
+];

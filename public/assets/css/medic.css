@@ -1,0 +1,163 @@
+/* ============================================================
+   NXTG Medic — komponen khusus aplikasi di atas NexaDash.
+   Semua warna lewat token var(--nx-*), aman untuk tema & dark mode.
+   ============================================================ */
+
+/* Avatar inisial (pengganti foto dummy template) */
+.nx-avatar-initial {
+  width: 36px; height: 36px; flex: 0 0 36px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  font-size: 13px; font-weight: 700; letter-spacing: .02em;
+  color: var(--nx-primary); background: var(--nx-primary-subtle);
+}
+.nx-avatar-initial.lg { width: 48px; height: 48px; flex-basis: 48px; font-size: 16px; }
+
+/* Faskes aktif di header */
+.nx-tenant-chip {
+  align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: var(--nx-radius-pill);
+  font-size: 12px; font-weight: 600;
+  color: var(--nx-text-body); background: var(--nx-surface-2);
+  border: 1px solid var(--nx-border);
+  max-width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* Pilihan tema (Pengaturan → Tampilan) */
+.nx-theme-option { cursor: pointer; display: block; }
+.nx-theme-option input { position: absolute; opacity: 0; pointer-events: none; }
+.nx-theme-option .card { transition: var(--nx-transition); border-width: 2px; }
+.nx-theme-option input:checked + .card { border-color: var(--nx-primary); box-shadow: var(--nx-shadow-glow); }
+.nx-theme-option input:focus-visible + .card { outline: 2px solid var(--nx-primary); outline-offset: 2px; }
+.nx-theme-swatches { display: flex; gap: 6px; }
+.nx-theme-swatches span { width: 28px; height: 28px; border-radius: var(--nx-radius-xs); border: 1px solid rgb(0 0 0 / .08); }
+.nx-theme-preview {
+  border-radius: var(--nx-radius-sm); overflow: hidden; border: 1px solid var(--nx-border);
+  display: grid; grid-template-columns: 30% 1fr; height: 96px;
+}
+.nx-theme-preview .pv-side { padding: 10px 8px; display: grid; gap: 6px; align-content: start; }
+.nx-theme-preview .pv-side i { display: block; height: 6px; border-radius: 3px; background: rgb(0 0 0 / .08); }
+.nx-theme-preview .pv-side i.on { height: 10px; }
+.nx-theme-preview .pv-main { padding: 10px; display: grid; gap: 8px; align-content: start; }
+.nx-theme-preview .pv-card { height: 26px; border-radius: 6px; background: #fff; border: 1px solid rgb(0 0 0 / .06); }
+.nx-theme-preview .pv-btn { width: 56px; height: 14px; border-radius: 4px; }
+
+/* Peringatan klinis berjenjang (PRD §11.1): ikon + label teks, bukan hanya warna */
+.nx-clinical-alert {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px 12px; border-radius: var(--nx-radius-sm);
+  border: 1px solid transparent; font-size: 13px;
+}
+.nx-clinical-alert .nx-ca-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+}
+.nx-clinical-alert.minor    { color: var(--nx-text-body); background: var(--nx-surface-1); border-color: var(--nx-border); }
+.nx-clinical-alert.moderate { color: var(--nx-text); background: var(--nx-warning-subtle); border-color: var(--nx-warning); }
+.nx-clinical-alert.moderate .nx-ca-label, .nx-clinical-alert.moderate > i { color: var(--nx-warning); }
+.nx-clinical-alert.major    { color: var(--nx-text); background: var(--nx-danger-subtle); border-color: var(--nx-danger); }
+.nx-clinical-alert.major .nx-ca-label, .nx-clinical-alert.major > i { color: var(--nx-danger); }
+
+/* Banner alergi (selalu merah, dekat identitas pasien) */
+.nx-allergy-banner {
+  display: flex; gap: 8px; align-items: center;
+  padding: 8px 12px; border-radius: var(--nx-radius-sm);
+  background: var(--nx-danger); color: #fff; font-weight: 600; font-size: 13px;
+}
+
+/* Nav pills ikut warna tema (Bootstrap default-nya biru #0d6efd) */
+.nav-pills {
+  --bs-nav-pills-link-active-bg: var(--nx-primary);
+  --bs-nav-link-color: var(--nx-text-body);
+  --bs-nav-link-hover-color: var(--nx-primary);
+}
+
+/* Header: jangan biarkan label membungkus di lebar sedang */
+.nx-header #nxQuickAction, .nx-header .nx-search-trigger span, .nx-header .nx-user-role, .nx-header .nx-user-name { white-space: nowrap; }
+
+/* Nomor antrean */
+.nx-queue-no { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--nx-text); }
+
+/* ===== Ruang periksa (PRD §11.3): 25% konteks · 45% SOAP · 30% resep ===== */
+.nx-emr-grid { display: grid; gap: 20px; grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 992px) { .nx-emr-grid { grid-template-columns: 1fr 1.6fr; } .nx-emr-grid > .nx-emr-right { grid-column: 1 / -1; } }
+@media (min-width: 1280px) {
+  .nx-emr-grid { grid-template-columns: 25fr 45fr 30fr; }
+  .nx-emr-grid > .nx-emr-right { grid-column: auto; }
+  .nx-emr-sticky { position: sticky; top: calc(var(--nx-header-h) + 16px); }
+}
+.nx-emr-grid .card { margin-bottom: 20px; }
+.nx-emr-grid textarea { resize: vertical; }
+
+.nx-vitals { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; }
+.nx-vitals > div:first-child { grid-column: span 2; } /* tekanan darah butuh ruang lebih */
+.nx-vitals strong { white-space: nowrap; }
+.nx-vitals > div {
+  padding: 8px; border-radius: var(--nx-radius-sm); background: var(--nx-surface-1);
+  border: 1px solid var(--nx-border); display: flex; flex-direction: column; min-width: 0;
+}
+.nx-vitals span { font-size: 11px; color: var(--nx-text-muted); }
+.nx-vitals strong { font-size: 16px; color: var(--nx-text); font-variant-numeric: tabular-nums; line-height: 1.3; }
+.nx-vitals small { font-size: 10px; color: var(--nx-text-muted); }
+/* Berat badan anak: acuan dosis, wajib menonjol (PRD §6.2) */
+.nx-vitals .nx-vital-key { background: var(--nx-warning-subtle); border-color: var(--nx-warning); }
+.nx-vitals .nx-vital-key strong { font-size: 20px; }
+
+.nx-soap-label { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.nx-soap-label .form-label { margin: 0; font-weight: 600; color: var(--nx-text); }
+.nx-save-state { font-size: 12px; color: var(--nx-text-muted); }
+
+/* e-Resep */
+.nx-rx-item { padding: 10px 0; border-bottom: 1px dashed var(--nx-border); }
+.nx-rx-item:last-child { border-bottom: 0; }
+.nx-rx-no { font-weight: 700; color: var(--nx-primary); min-width: 28px; }
+.nx-signa-quick .btn { padding: 2px 8px; font-size: 12px; }
+.min-w-0 { min-width: 0; }
+.nx-modal-major .modal-header { background: var(--nx-danger); color: #fff; }
+.nx-modal-major .modal-header .modal-title { color: #fff; }
+.nx-modal-major .modal-header .btn-close { filter: invert(1) grayscale(1) brightness(2); }
+
+.nx-history-item { display: block; width: 100%; text-align: left; padding: 10px 12px; border: 1px solid var(--nx-border); border-radius: var(--nx-radius-sm); background: var(--nx-card-bg); color: var(--nx-text-body); }
+.nx-history-item:hover { border-color: var(--nx-primary); background: var(--nx-hover-bg); }
+.nx-history-item + .nx-history-item { margin-top: 8px; }
+
+/* Tabel data ringkas */
+.nx-table-compact td, .nx-table-compact th { padding-top: .55rem; padding-bottom: .55rem; vertical-align: middle; }
+
+/* Target sentuh besar di tablet (PRD §9) */
+@media (pointer: coarse) {
+  .btn, .form-control, .form-select { min-height: 44px; }
+  .nx-icon-btn { min-width: 44px; min-height: 44px; }
+}
+
+/* Grid 3 kolom: kolom boleh menyusut, isi lebar (tabel) di-scroll di dalam kartu */
+.nx-emr-grid > * { min-width: 0; }
+
+/* POS: tab antrean selebar kolom kiri */
+.nx-pos-tabs { display: flex; width: 100%; flex-wrap: nowrap; }
+.nx-pos-tabs .nav-item { flex: 1 1 0; min-width: 0; }
+.nx-pos-tabs .nav-link { width: 100%; padding: 4px 6px; white-space: nowrap; }
+.nx-pos-queue .nx-queue-no { font-size: 12px; }
+
+/* Grafik kolom satu seri (komponen x-bar-chart) */
+.nx-bars-plot { position: relative; margin-left: 52px; }
+.nx-bars-grid span { position: absolute; left: 0; right: 0; border-top: 1px solid var(--nx-border); }
+.nx-bars-grid em { position: absolute; right: calc(100% + 8px); top: -8px; font-style: normal; font-size: 11px; color: var(--nx-text-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.nx-bars-cols { position: absolute; inset: 0; display: flex; align-items: flex-end; gap: 2px; }
+.nx-bars-col { position: relative; flex: 1 1 0; height: 100%; display: flex; align-items: flex-end; justify-content: center; outline: none; border-radius: 4px; }
+.nx-bars-col:hover, .nx-bars-col:focus-visible { background: color-mix(in srgb, var(--nx-text) 5%, transparent); }
+.nx-bars-col:focus-visible { box-shadow: 0 0 0 2px var(--nx-primary); }
+.nx-bars-bar { position: relative; width: min(24px, 70%); background: var(--nx-primary); border-radius: 4px 4px 0 0; }
+.nx-bars-peak { position: absolute; bottom: calc(100% + 4px); left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 600; color: var(--nx-text); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.nx-bars-tip {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 5;
+  display: none; flex-direction: column; padding: 6px 10px; border-radius: var(--nx-radius-sm);
+  background: var(--nx-card-bg); border: 1px solid var(--nx-border); box-shadow: var(--nx-shadow);
+  font-size: 12px; color: var(--nx-text-muted); white-space: nowrap; pointer-events: none;
+}
+.nx-bars-col.tip-start .nx-bars-tip { left: 0; transform: none; }
+.nx-bars-col.tip-end .nx-bars-tip { left: auto; right: 0; transform: none; }
+.nx-bars-tip strong { color: var(--nx-text); font-variant-numeric: tabular-nums; }
+.nx-bars-col:hover .nx-bars-tip, .nx-bars-col:focus-visible .nx-bars-tip { display: flex; }
+.nx-bars-col:hover .nx-bars-peak, .nx-bars-col:focus-visible .nx-bars-peak { visibility: hidden; }
+.nx-bars-x { display: flex; gap: 2px; margin: 6px 0 0 52px; }
+.nx-bars-x span { flex: 1 1 0; text-align: center; font-size: 11px; color: var(--nx-text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
